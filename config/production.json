@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://taivna:taivna123@mern-db-oykmn.mongodb.net/devconnector?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "d7810b690f9c75a3ea99",
+  "githubSecret": "79944e7dd893dc658377a3315be5efcc85507f9a"
+}

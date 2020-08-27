@@ -1,1 +1,130 @@
-GET http://localhost:5000 HTTP/1.1
+GET http://localhost:5000/api/users HTTP/1.1
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-Type: application/json
+
+{
+    "name": "Steve Smith",
+    "email": "steve@gmail.com",
+    "password": "123456"
+}
+
+###
+GET http://localhost:5000/api/auth HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MTg4NTMyMiwiZXhwIjoxNTkxOTIxMzIyfQ.w7VL5QH-QuyYWc4uZlTE-L6DG4EFH5P3hgFx4kWB9IU
+
+###
+POST http://localhost:5000/api/auth HTTP/1.1
+content-type: application/json
+
+{
+    "email": "johndoe@gmail.com",
+    "password": "123456"
+}
+
+###
+GET http://localhost:5000/api/profile/me HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjEwOTVkOWMzZGUxM2RjMDk1OTA1In0sImlhdCI6MTU5MjIxMzIzNiwiZXhwIjoxNTkyMjQ5MjM2fQ.O4jQBSheBXRGT_tEA3uRapR6S3MCpFaX4ybtbb4taLw
+
+###
+POST http://localhost:5000/api/profile HTTP/1.1
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlNzQ1YjJlODcyZDMxZWIwZWE5MWUzIn0sImlhdCI6MTU5MjIxNDk2MiwiZXhwIjoxNTkyNjQ2OTYyfQ.6KvVUfApFg0WNpZ9kjrsMRcgmvu6qaaRudWYU7iQtOM
+
+{
+    "company": "Test Company",
+    "status": "Developer",
+    "skills": "HTML, CSS, JS"
+}
+###
+
+GET http://localhost:5000/api/profile HTTP/1.1
+
+###
+GET http://localhost:5000/api/profile/user/5ee21095d9c3de13dc095905 HTTP/1.1
+
+###
+DELETE http://localhost:5000/api/profile HTTP/1.1
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlNzQ1YjJlODcyZDMxZWIwZWE5MWUzIn0sImlhdCI6MTU5MjIxNTM3OCwiZXhwIjoxNTkyMjUxMzc4fQ.FpGAWg3PWNmmAwla6RwA_VE4SHY1F_thnI4aA1VCf7g
+
+###
+PUT http://localhost:5000/api/profile/experience HTTP/1.1
+content-type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjEwOTVkOWMzZGUxM2RjMDk1OTA1In0sImlhdCI6MTU5MjIxNjYyNiwiZXhwIjoxNTkyMjUyNjI2fQ.ZH5rGu8Ewahdyorw5x8RjwBgNY36l-bg0GrwUqOTPGM
+
+{
+    "title": "Test",
+    "company": "Test",
+    "localhost": "Boston, MA",
+    "from": "1-5-2006",
+    "to": "1-7-2009",
+    "description": "Full stack web dev"
+}
+
+###
+DELETE http://localhost:5000/api/profile/experience/5ee74e172f39d7203c283397 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjEwOTVkOWMzZGUxM2RjMDk1OTA1In0sImlhdCI6MTU5MjIxNjYyNiwiZXhwIjoxNTkyMjUyNjI2fQ.ZH5rGu8Ewahdyorw5x8RjwBgNY36l-bg0GrwUqOTPGM
+
+###
+PUT http://localhost:5000/api/profile/education HTTP/1.1
+content-type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjEwOTVkOWMzZGUxM2RjMDk1OTA1In0sImlhdCI6MTU5MjIxNjYyNiwiZXhwIjoxNTkyMjUyNjI2fQ.ZH5rGu8Ewahdyorw5x8RjwBgNY36l-bg0GrwUqOTPGM
+
+{
+    "school": "Test School",
+    "degree": "Associates Degree",
+    "fieldofstudy": "Computer Science",
+    "from": "8-2-2003",
+    "to": "3-4-2005",
+    "description": "Got Associates in computer science"
+}
+
+###
+DELETE http://localhost:5000/api/profile/education/5ee7520006824128843c2697 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjEwOTVkOWMzZGUxM2RjMDk1OTA1In0sImlhdCI6MTU5MjIxNjYyNiwiZXhwIjoxNTkyMjUyNjI2fQ.ZH5rGu8Ewahdyorw5x8RjwBgNY36l-bg0GrwUqOTPGM
+
+###
+GET http://localhost:5000/api/profile/github/taivna HTTP/1.1
+
+###
+POST http://localhost:5000/api/posts HTTP/1.1
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMjQ4MSwiZXhwIjoxNTkyMjY4NDgxfQ.2Rym3ayQ-y2-S0Q7h94-Hf_YOcxF4RTUEJ0bz3GPazs
+
+{
+    "text": "delete me"
+}
+
+###
+GET http://localhost:5000/api/posts HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIyODk3MywiZXhwIjoxNTkyMjY0OTczfQ.Qx3EQDF-XK5sVjDslbg7w48cQkVcled0hiP3SkRKEjg
+
+###
+GET http://localhost:5000/api/posts/5ee7778bccaae92804c44d8f HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIyODk3MywiZXhwIjoxNTkyMjY0OTczfQ.Qx3EQDF-XK5sVjDslbg7w48cQkVcled0hiP3SkRKEjg
+
+###
+DELETE http://localhost:5000/api/posts/5ee7875979cc4901d0235ad7 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMTc5MCwiZXhwIjoxNTkyMjY3NzkwfQ.F5Bjiudb3KPrX0OWL_WWp3vGa3UPWuBUne25xDSJJpI
+
+###
+PUT http://localhost:5000/api/posts/like/5ee7778bccaae92804c44d8f HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMTc5MCwiZXhwIjoxNTkyMjY3NzkwfQ.F5Bjiudb3KPrX0OWL_WWp3vGa3UPWuBUne25xDSJJpI
+
+###
+PUT http://localhost:5000/api/posts/unlike/5ee7778bccaae92804c44d8f HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMTc5MCwiZXhwIjoxNTkyMjY3NzkwfQ.F5Bjiudb3KPrX0OWL_WWp3vGa3UPWuBUne25xDSJJpI
+
+###
+POST http://localhost:5000/api/posts/comment/5ee7778bccaae92804c44d8f HTTP/1.1
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMTc5MCwiZXhwIjoxNTkyMjY3NzkwfQ.F5Bjiudb3KPrX0OWL_WWp3vGa3UPWuBUne25xDSJJpI
+
+{
+    "text": "Delete me"
+}
+
+###
+DELETE http://localhost:5000/api/posts/comment/5ee7778bccaae92804c44d8f/5ee78ef3345a0927d8fce429 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVlMjNlMGEyNjQ4ODIxYTA4ZjRkZTA3In0sImlhdCI6MTU5MjIzMTc5MCwiZXhwIjoxNTkyMjY3NzkwfQ.F5Bjiudb3KPrX0OWL_WWp3vGa3UPWuBUne25xDSJJpI
